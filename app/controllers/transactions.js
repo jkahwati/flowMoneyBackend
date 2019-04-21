@@ -7,4 +7,4 @@ module.exports = {
       .then((transaction) => res.status(200).send(transaction))
       .catch((error) => { res.status(400).send(error); });
   }
-};
+}; 

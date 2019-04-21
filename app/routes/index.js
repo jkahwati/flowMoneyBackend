@@ -4,4 +4,5 @@ module.exports = function(app) {
 
   app.route('/users')
     .get(userController.list)
+    
 };
