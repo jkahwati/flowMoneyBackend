@@ -1,10 +1,10 @@
 {
   "development": {
-    "username": "root",
-    "password": "",
-    "database": "flowMoney",
-    "host": "127.0.0.1",
-    "dialect": "mysql"
+    "username": "jeka",
+    "password": "12345",
+    "database": "flowdb",
+    "host": "localhost",
+    "dialect": "postgres"
   }
 }
 
