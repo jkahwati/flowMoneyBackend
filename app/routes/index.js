@@ -4,5 +4,8 @@ module.exports = function(app) {
 
   app.route('/users')
     .get(userController.list)
+
+  app.route('/user/:id')
+    .post(userController.get) 
     
 };
