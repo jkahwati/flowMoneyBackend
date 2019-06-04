@@ -1,11 +1,24 @@
-module.exports = function(app) {
+const express = require('express');
+const router = express.Router();
+const userController = require('../controllers/users');
+  // const db = require('../config/queries')
 
-  var userController = require('../controllers/users');
+router.get('/health', (req,res) => { 
 
-  app.route('/users')
-    .get(userController.list)
+  userController.list().then((value) => {
 
-  app.route('/user/:id')
-    .post(userController.get) 
-    
-};
+    res.status(200).send(value);
+  })
+ 
+})
+
+router.get('/newTransaction', (req,res) => { 
+
+  userController.newTransaction().then((value) => {
+
+    res.status(200).send(value);
+  })
+ 
+})
+
+module.exports = router;

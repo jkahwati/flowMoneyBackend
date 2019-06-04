@@ -1,11 +1,9 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   const Transaction = sequelize.define('Transaction', {
-    amount: DataTypes.STRING,
+    amout: DataTypes.FLOAT,
     positive: DataTypes.BOOLEAN,
-    transaction_date: DataTypes.DATE,
-    status: DataTypes.STRING,
-    user_id: DataTypes.INTEGER
+    transaction_date: DataTypes.DATE
   }, {});
   Transaction.associate = function(models) {
     // associations can be defined here

@@ -1,20 +1,23 @@
-const User = require('../models').User;
-const Transaction = require('../models').Transaction;
+// const User = require('../models').User;
+// const Transaction = require('../models').Transaction;
+const db = require('../config/queries')
 
 
-exports.list = function(req, res) {
-  User.findAll({
-    include: [{
-      model: Transaction,
-      required: true
-     }]
+module.exports.list = () => {
+    console.log("validateEmail","app-ok");
+    return db.health().then((status) => {
+      console.log("status es ->",status)
+      return status;
+    })
+
+}
+
+module.exports.newTransaction = () => {
+  console.log("validateEmail","app-ok");
+  return db.createTransaction().then((status) => {
+    console.log("status es ->",status)
+    return status;
   })
-  .then((users) => res.status(200).send(users))
-  .catch((error) => { res.status(400).send(error) })
-};
 
-exports.get = function(req, res) {
-  User.findByPk(req.params.id)
-  .then( (user) => res.status(200).send(user))
-  .catch((error) => {res.status(400).send(error.stack) })
-};
+}
+
