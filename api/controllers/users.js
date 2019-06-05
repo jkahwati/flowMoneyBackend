@@ -12,9 +12,9 @@ module.exports.list = () => {
 
 }
 
-module.exports.newTransaction = () => {
+module.exports.newTransaction = (transaction) => {
   console.log("validateEmail","app-ok");
-  return db.createTransaction().then((status) => {
+  return db.createTransaction(transaction).then((status) => {
     console.log("status es ->",status)
     return status;
   })

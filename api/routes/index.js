@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const userController = require('../controllers/users');
+
   // const db = require('../config/queries')
 
 router.get('/health', (req,res) => { 
@@ -12,13 +13,15 @@ router.get('/health', (req,res) => {
  
 })
 
-router.get('/newTransaction', (req,res) => { 
+router.post('/newTransaction', (req,res) => { 
 
-  userController.newTransaction().then((value) => {
+  let body = req.body;
+  console.log("newTransaction: " + body);
+  userController.newTransaction(body).then((value) => {
 
     res.status(200).send(value);
   })
- 
+  
 })
 
 module.exports = router;

@@ -2,6 +2,9 @@ const express = require("express"),
 port = process.env.PORT || 3000;
 const app = express();
 var routes = require('./api/routes/index'); //importing route
+const bodyParser = require('body-parser');
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use(routes);
 app.listen(port);
 console.log('flow-money-backend API server started on: ' + port);
